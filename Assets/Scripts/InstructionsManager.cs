@@ -6,6 +6,7 @@ public class InstructionsManager : MonoBehaviour
 {
     public Texture[] InstructionPages;
     public GameObject InstructionPanel;
+    private Vector3 instructionPanelInitialPosition;
     private int currentPageIndex;
     private int lastPageIndex;
     private Renderer instructionPanelRenderer;
@@ -13,7 +14,8 @@ public class InstructionsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastPageIndex = InstructionPages.Length;
+        instructionPanelInitialPosition = InstructionPanel.transform.position;
+        lastPageIndex = InstructionPages.Length - 1;
         currentPageIndex = 0;
         instructionPanelRenderer = InstructionPanel.GetComponent<Renderer>();
         instructionPanelRenderer.material.mainTexture = InstructionPages[currentPageIndex];
@@ -36,5 +38,10 @@ public class InstructionsManager : MonoBehaviour
             currentPageIndex--;
             instructionPanelRenderer.material.mainTexture = InstructionPages[currentPageIndex];
         }  
+    }
+
+    public void resetPosition()
+    {
+        InstructionPanel.transform.position = instructionPanelInitialPosition;
     }
 }

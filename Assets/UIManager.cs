@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public InstructionsManager instructionsManager;
+    [SerializeField]
+    private InstructionsManager instructionsManager;
+
+    [SerializeField]
+    private GameObject DebugCanvas;
+    private bool debug = false;
 
     public void loadNextInstruction()
     {
@@ -14,6 +19,18 @@ public class UIManager : MonoBehaviour
     public void loadPreviousInstruction()
     {
         instructionsManager.loadPreviousInstruction();
+    }
+
+    public void toggleDebug()
+    {
+        debug = !debug;
+
+        DebugCanvas.SetActive(debug);
+    }
+
+    public void resetPosition()
+    {
+        instructionsManager.resetPosition();
     }
 }
 
