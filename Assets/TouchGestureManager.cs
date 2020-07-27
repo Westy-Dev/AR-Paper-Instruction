@@ -79,9 +79,9 @@ public class TouchGestureManager : MonoBehaviour
                     Vector2 touchMovement = (touch.deltaPosition) * movementSensitivity;
                     Debug.Log("Delta Touch Position = " + touchMovement);
                     arObject.transform.position = new Vector3(
-                                arObject.transform.position.x,
+                                arObject.transform.position.x + touchMovement.x,
                                 arObject.transform.position.y + touchMovement.y,
-                               arObject.transform.position.z + touchMovement.x);
+                               arObject.transform.position.z);
                     Debug.Log("New Position = " + arObject.transform.position);
                 }
             }
