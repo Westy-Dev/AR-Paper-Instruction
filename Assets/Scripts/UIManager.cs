@@ -7,13 +7,15 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private InstructionsManager instructionsManager;
-    [SerializeField]
-    private ARCameraManager arCameraManager;
 
     [SerializeField]
     private GameObject DebugCanvas;
+
+    [SerializeField]
+    private GameObject instructionBackground;
+
     private bool debug = false;
-    private bool cameraEnabled = true;
+    private bool showInstructionBackground = true;
 
     public void loadNextInstruction()
     {
@@ -32,17 +34,16 @@ public class UIManager : MonoBehaviour
         DebugCanvas.SetActive(debug);
     }
 
+    public void toggleInstructionBackground()
+    {
+        showInstructionBackground = !showInstructionBackground;
+
+        instructionBackground.SetActive(showInstructionBackground);
+    }
+
     public void resetPosition()
     {
         instructionsManager.resetPosition();
-    }
-
-    public void disableCamera()
-    {
-        cameraEnabled = !cameraEnabled;
-
-        arCameraManager.enabled = cameraEnabled;
-        Debug.Log("Camera = " + arCameraManager.enabled);
     }
 }
 
