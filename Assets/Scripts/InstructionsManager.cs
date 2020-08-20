@@ -12,6 +12,8 @@ public class InstructionsManager : MonoBehaviour
     private int lastPageIndex;
     private Renderer instructionPanelRenderer;
 
+    [SerializeField]
+    private UIManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,13 @@ public class InstructionsManager : MonoBehaviour
         instructionPanelInitialScale = InstructionPanel.transform.localScale;
         lastPageIndex = InstructionPages.Length - 1;
         currentPageIndex = 0;
+
+        uiManager.prevButton.SetActive(false);
+
         instructionPanelRenderer = InstructionPanel.GetComponent<Renderer>();
         instructionPanelRenderer.material.mainTexture = InstructionPages[currentPageIndex];
+
+        updateUIText();
     }
 
     public void loadNextInstruction()
@@ -30,7 +37,8 @@ public class InstructionsManager : MonoBehaviour
             currentPageIndex++;
             instructionPanelRenderer.material.mainTexture = InstructionPages[currentPageIndex];
         }
-   
+
+        updateUIButtons();
     }
 
     public void loadPreviousInstruction()
@@ -39,7 +47,37 @@ public class InstructionsManager : MonoBehaviour
         {
             currentPageIndex--;
             instructionPanelRenderer.material.mainTexture = InstructionPages[currentPageIndex];
-        }  
+        }
+
+        updateUIButtons();
+    }
+
+    private void updateUIButtons()
+    {
+
+        if (currentPageIndex == 0)
+        {
+            uiManager.prevButton.SetActive(false);
+        }
+        else if (!uiManager.prevButton.activeSelf)
+        {
+            uiManager.prevButton.SetActive(true);
+        }
+
+        if (currentPageIndex == lastPageIndex)
+        {
+            uiManager.nextButton.SetActive(false);
+        }
+        else if (!uiManager.nextButton.activeSelf)
+        {
+            uiManager.nextButton.SetActive(true);
+        }
+
+    }
+
+    private void updateUIText()
+    {
+        uiManager.UpdateStepNumber(currentPageIndex + 1);
     }
 
     public void resetPosition()
