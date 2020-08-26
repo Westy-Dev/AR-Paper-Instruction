@@ -86,7 +86,7 @@ public class TouchGestureManager : MonoBehaviour
                 }
             }
 
-            if (touch.phase == TouchPhase.Stationary)
+            if (touch.phase == TouchPhase.Ended)
             {
                 arObject = null;
             }

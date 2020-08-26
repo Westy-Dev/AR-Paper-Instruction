@@ -39,6 +39,7 @@ public class InstructionsManager : MonoBehaviour
         }
 
         updateUIButtons();
+        updateUIText();
     }
 
     public void loadPreviousInstruction()
@@ -50,6 +51,7 @@ public class InstructionsManager : MonoBehaviour
         }
 
         updateUIButtons();
+        updateUIText();
     }
 
     private void updateUIButtons()
