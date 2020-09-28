@@ -106,7 +106,8 @@ public class TouchGestureManager : MonoBehaviour
             //If we are moving and have a reference to the instructions
             if (arInstructions != null)
             {
-                //Create a vector based on the position move since last update and the defined sensitivity
+                //Create a vector based on the position move since last update 
+                //and the defined sensitivity
                 Vector2 touchMovement = (touch.deltaPosition) * movementSensitivity;
                 
                 //Apply this vector to the transform of the instructions

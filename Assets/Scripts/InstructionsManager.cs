@@ -5,7 +5,7 @@
 /// </summary>
 public class InstructionsManager : MonoBehaviour
 {
-    [Tooltip("Images in JPEG Format for each instruction page")]
+    [Tooltip("Images in PNG Format for each instruction page")]
     // Instruction textures for instruction panel
     public Texture[] InstructionPages;
 
@@ -48,7 +48,8 @@ public class InstructionsManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads the next instruction texture from <c>InstructionPages</c> and applies it to the <c>InstructionPanel</c>
+    /// Loads the next instruction texture from <c>InstructionPages</c> 
+    /// and applies it to the <c>InstructionPanel</c>
     /// </summary>
     public void loadNextInstruction()
     {
