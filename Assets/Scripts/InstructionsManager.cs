@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Created By Ben Westcott, 2020
+using UnityEngine;
 /// <summary>
 /// Manages the display and positioning and scale of the <c>InstructionPanel</c> and 
 /// the display of <c>InstructionPages</c> textures
